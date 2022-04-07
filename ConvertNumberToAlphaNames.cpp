@@ -100,17 +100,13 @@ string getUnitsString(int DigitsPlace, int Value)
 {
     string out = "";
 
+    if ( (DigitsPlace + 1) % 3 == 0 )
+    {
+        out = (Value == 0 ? "" : string("hundred"));
+    }
+
     switch ( DigitsPlace )
     {
-        case 2:
-        case 5:
-        case 8:
-        case 11:
-        case 14:
-        case 17:
-        case 20:
-            out = (Value == 0 ? "" : string("hundred"));
-            break;
         case 3:
             out = string("thousand");
             break;
@@ -129,38 +125,93 @@ string getUnitsString(int DigitsPlace, int Value)
         case 18:
             out = string("quintillion");
             break;
-        default:
-            out = string("");
+        case 21:
+            out = string("sextillion");
+            break;
+        case 24:
+            out = string("septillion");
+            break;
+        case 27:
+            out = string("octillion");
+            break;
+        case 30:
+            out = string("nonillion");
+            break;
+        case 33:
+            out = string("decillion");
+            break;
+        case 36:
+            out = string("undecillion");
+            break;
+        case 39:
+            out = string("duodecillion");
+            break;
+        case 42:
+            out = string("tredecillion");
+            break;
+        case 45:
+            out = string("quattuordecillion");
+            break;
+        case 48:
+            out = string("quindecillion");
+            break;
+        case 51:
+            out = string("sexdecillion");
+            break;
+        case 54:
+            out = string("septendecillion");
+            break;
+        case 57:
+            out = string("octodecillion");
+            break;
+        case 60:
+            out = string("novemdecillion");
             break;
     }
     
+    /*
+    Place
+    1 	Ten 	Ten 	Ten 	da 	Deca-
+    2 	Hundred 	Hundred 	Hundred 	h 	Hecto-
+    3 	Thousand 	Thousand 	Thousand 	K 	Kilo-
+    4 	Ten thousand 	Ten thousand 	Ten thousand 	my (Now obsolete) 	Myria- (Now obsolete)
+    5 	Hundred thousand 	Hundred thousand 	Hundred thousand 		
+    6 	Million 	Million 	Million 	M 	Mega-
+    9 	Billion 	Milliard 	Thousand million 	G 	Giga-
+    12 	Trillion 	Billion 	Billion 	T 	Tera-
+    15 	Quadrillion 	Billiard 	Thousand billion 	P 	Peta- 
+    18 	Quintillion 	Trillion 	Trillion 	E 	Exa-
+    21 	Sextillion 	Trilliard 	Thousand trillion 	Z 	Zetta-
+    24 	Septillion 	Quadrillion 	Quadrillion 	Y 	Yotta-
+    27 	Octillion 	Quadrilliard 	Thousand quadrillion
+    30 	Nonillion 	Quintilion 	Quintillion
+    33 	Decillion 	Quintilliard 	Thousand quintillion
+    36 	Undecillion 	Sextillion 	Sextillion
+    39 	Duodecillion 	Sextilliard 	Thousand sextillion
+    42 	Tredecillion 	Septillion 	Septillion
+    45 	Quattuordecillion 	Septilliard 	Thousand septillion
+    48 	Quindecillion 	Octillion 	Octillion
+    51 	Sexdecillion 	Octilliard 	Thousand octillion
+    54 	Septendecillion 	Nonillion 	Nonillion
+    57 	Octodecillion 	Nonilliard 	Thousand nonillion
+    60 	Novemdecillion 	Decillion 	Decillion
+    */
+
     return out;
 }
 
 bool isTensDigit(int DigitsPlace)
 {
-    switch ( DigitsPlace )
-    {
-        case 1:
-        case 4:
-        case 7:
-        case 10:
-        case 13:
-        case 16:
-        case 19:
-            return true;
-        default:
-            return false;
-    }
-        
+    if ( (DigitsPlace + 2) % 3 == 0 )
+        return true;
+
     return false;
 }
 
-string ConvertNumberToWords(long int Value)
+string ConvertNumberToWords(string Value)
 {
     string ConvertedToWords = "";
-    string strValue = to_string(Value);
-    int ilength = strValue.length() - 1;
+    int ilength = Value.length() - 1;
     
     char cNumber = ' ';
     int iNumber = 0;
@@ -169,7 +220,7 @@ string ConvertNumberToWords(long int Value)
     
     for( int i = ilength; i >= 0; i-- )
     {
-        cNumber = strValue[ilength - i];
+        cNumber = Value[ilength - i];
         iNumber = atoi(&cNumber);
 
         bool bTens = isTensDigit(i);
@@ -200,13 +251,13 @@ string ConvertNumberToWords(long int Value)
 
 int main()
 {
-    long int iInput = 0;
+    string sInput = string("");
     cout << "Input A Number To Convert To It's Word Value: ";
-    cin >> iInput;
+    cin >> sInput;
 
-    cout << "The Number Received Was: " << iInput << endl;
+    cout << "The Number Received Was: " << sInput << endl;
     
-    cout << ConvertNumberToWords(iInput);
+    cout << ConvertNumberToWords(sInput);
 
     return 0;
 }
