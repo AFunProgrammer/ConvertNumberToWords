@@ -156,21 +156,16 @@ bool isTensDigit(int DigitsPlace)
     return false;
 }
 
-int main()
+string ConvertNumberToWords(long int Value)
 {
-    long int iInput = 0;
-    cout << "Input A Number To Convert To It's Word Value: ";
-    cin >> iInput;
-
-    cout << "The Number Received Was: " << iInput << endl;
-    
-    string strValue = to_string(iInput);
+    string ConvertedToWords = "";
+    string strValue = to_string(Value);
     int ilength = strValue.length() - 1;
     
     char cNumber = ' ';
     int iNumber = 0;
     int iPrevNumber = 0;
-    string stdout = "";
+    string word = "";
     
     for( int i = ilength; i >= 0; i-- )
     {
@@ -180,26 +175,38 @@ int main()
         bool bTens = isTensDigit(i);
         
         if ( i+1 <= ilength && isTensDigit(i+1) && iPrevNumber == 1 )
-            stdout = getOddTensValues( iNumber );
+            word = getOddTensValues( iNumber );
         else
-            stdout = getOnesString( iNumber, bTens );
+            word = getOnesString( iNumber, bTens );
 
-        cout << stdout;
+        ConvertedToWords += word;
         
-        if ( stdout.length() != 0 )
-            cout << " ";
+        if ( word.length() != 0 )
+            ConvertedToWords += " ";
 
-        stdout = getUnitsString(i,iNumber);
+        word = getUnitsString(i,iNumber);
         
-        cout << stdout;
+        ConvertedToWords += word;
         
-        if ( stdout.length() != 0 )
-            cout << " ";
+        if ( word.length() != 0 )
+            ConvertedToWords += " ";
         
-        stdout = "";
+        word = "";
         iPrevNumber = iNumber; 
     }
+    
+    return ConvertedToWords;
+}
 
+int main()
+{
+    long int iInput = 0;
+    cout << "Input A Number To Convert To It's Word Value: ";
+    cin >> iInput;
+
+    cout << "The Number Received Was: " << iInput << endl;
+    
+    cout << ConvertNumberToWords(iInput);
 
     return 0;
 }
