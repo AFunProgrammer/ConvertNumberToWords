@@ -1,7 +1,7 @@
 # ConvertNumberToWords
 Conversion of Numbers to written words (e.g. 1 to one, 2 to two, 12 to twelve) with digit group names (e.g. thousand, million)
 
-To sample the running code, follow this link: https://onlinegdb.com/3BJKMkl43 or https://onlinegdb.com/j7m2EtMYj
+To sample the running code, follow this link: https://onlinegdb.com/KgUMkasnH or https://onlinegdb.com/cNz6cmj6c
 
 Currently this is limited to novemdecillion and an example output follows for a large value.
 e.g. 
