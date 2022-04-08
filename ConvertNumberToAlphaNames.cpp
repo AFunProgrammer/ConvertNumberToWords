@@ -1,10 +1,8 @@
 /******************************************************************************
-
 Welcome to GDB Online.
 GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
 C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
 Code, Compile, Run and Debug online from anywhere in world.
-
 *******************************************************************************/
 #include <stdio.h>
 #include <string>
@@ -13,6 +11,27 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <stdlib.h>
 
 using namespace std;
+
+string removeNonNumberCharacters(const string RemoveNonNumbers)
+{
+    string keepOnlyNumbers = RemoveNonNumbers;
+    
+    int iChar = 0;
+    int iNumber = 0;
+    
+    while ( iChar < keepOnlyNumbers.length() )
+    {
+        iNumber = keepOnlyNumbers[iChar] - (char)'0';
+        
+        if ( iNumber >= 0 && iNumber <= 9 )
+            iChar++;
+        else
+            keepOnlyNumbers.erase(iChar, 1); 
+    }
+
+    return keepOnlyNumbers;
+}
+
 
 string getOddTensValues(int Value)
 {
@@ -211,21 +230,28 @@ bool isTensDigit(int DigitsPlace)
 string ConvertNumberToWords(string Value)
 {
     string ConvertedToWords = "";
-    int ilength = Value.length() - 1;
+    int iDigit = Value.length() - 1;
     
     char cNumber = ' ';
     int iNumber = 0;
     int iPrevNumber = 0;
     string word = "";
+    bool bNumberInGroup = false;
     
-    for( int i = ilength; i >= 0; i-- )
+    for( int i = iDigit; i >= 0; i-- )
     {
-        cNumber = Value[ilength - i];
+        cNumber = Value[iDigit - i];
         iNumber = atoi(&cNumber);
+        
+        if ( (i + 1) % 3 == 0 )
+            bNumberInGroup = false;
+            
+        if ( iNumber > 0 )
+            bNumberInGroup = true;
 
         bool bTens = isTensDigit(i);
         
-        if ( i+1 <= ilength && isTensDigit(i+1) && iPrevNumber == 1 )
+        if ( i+1 <= iDigit && isTensDigit(i+1) && iPrevNumber == 1 )
             word = getOddTensValues( iNumber );
         else
             word = getOnesString( iNumber, bTens );
@@ -235,12 +261,15 @@ string ConvertNumberToWords(string Value)
         if ( word.length() != 0 )
             ConvertedToWords += " ";
 
-        word = getUnitsString(i,iNumber);
+        if ( bNumberInGroup )
+        {
+            word = getUnitsString(i,iNumber);
         
-        ConvertedToWords += word;
+            ConvertedToWords += word;
         
-        if ( word.length() != 0 )
-            ConvertedToWords += " ";
+            if ( word.length() != 0 )
+                ConvertedToWords += " ";
+        }
         
         word = "";
         iPrevNumber = iNumber; 
@@ -252,12 +281,19 @@ string ConvertNumberToWords(string Value)
 int main()
 {
     string sInput = string("");
-    cout << "Input A Number To Convert To It's Word Value: ";
+    cout << "Input A Number To Convert To It's Word Value (avoid decimals values for now): ";
     cin >> sInput;
 
     cout << "The Number Received Was: " << sInput << endl;
+    
+    sInput = removeNonNumberCharacters(sInput);
+    
+    cout << "The Number Received Was (Without Seperators): " << sInput << endl;
+    cout << "The Number Is Read As: " << endl;
     
     cout << ConvertNumberToWords(sInput);
 
     return 0;
 }
+
+
