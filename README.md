@@ -19,14 +19,14 @@ In Decimal Format: 7500000000000000000</br>
 The Number Is Read As:</br>
 seven quintillion five hundred quadrillion 
 
-e.g.
+e.g.  
 Input a number to convert to it's word value (use 117000 or 1.17e+5 or 1.17e5 for input): 564065406540654684168879896049044004964864165190</br>
 I Received: 564065406540654684168879896049044004964864165190</br>
 In Decimal Format: 564065406540654684168879896049044004964864165190</br>
 The Number Is Read As:</br>
 five hundred sixty four quattuordecillion sixty five tredecillion four hundred six duodecillion five hundred fourty undecillion six hundred fifty four decillion six hundred eighty four nonillion one hundred sixty eight octillion eight hundred seventy nine septillion eight hundred ninety six sextillion fourty nine quintillion fourty four quadrillion four trillion nine hundred sixty four billion eight hundred sixty four million one hundred sixty five thousand one hundred ninety 
 
-e.g.
+e.g.  
 Input a number to convert to it's word value (use 117000 or 1.17e+5 or 1.17e5 for input): 9sdflkjxcv.77430lkjsdfoijvoisjdfe10</br>
 I Received: 9sdflkjxcv.77430lkjsdfoijvoisjdfe10</br>
 The Number after removing extraneous characters: 9.77430e10</br>
