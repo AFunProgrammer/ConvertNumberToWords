@@ -12,6 +12,25 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 using namespace std;
 
+//TODO
+bool isInScientificNotation(const string CheckForScientificNotation)
+{
+    return false;
+}
+//TODO
+string convertFromScientificNotation(const string ScientificNotation)
+{
+    string converted = "";
+    return converted;
+}
+//TODO
+string convertToScientificNotation(const string Value)
+{
+    string converted = "";
+    return converted;
+}
+
+
 string removeNonNumberCharacters(const string RemoveNonNumbers)
 {
     string keepOnlyNumbers = RemoveNonNumbers;
@@ -186,9 +205,51 @@ string getUnitsString(int DigitsPlace, int Value)
         case 60:
             out = string("novemdecillion");
             break;
+        case 63:
+            out = string("vigintillion");
+            break;
+        case 66:
+            out = string("unvigintillion");
+            break;
+        case 69:
+            out = string("duovigintillion");
+            break;
+        case 72:
+            out = string("trevigintillion");
+            break;
+        case 75:
+            out = string("quattuorvigintillion");
+            break;
+        case 78:
+            out = string("quinvigintillion");
+            break;
+        case 81:
+            out = string("sexvigintillion");
+            break;    
+        case 84:
+            out = string("septenvigintillion");
+            break;
+        case 87:
+            out = string("octovigintillion");
+            break;
+        case 90:
+            out = string("novemvigintillion");
+            break;
+        case 93:
+            out = string("trigintillion");
+            break;
+        case 96:
+            out = string("untrigintillion");
+            break;
+        case 99:
+            out = string("duotrigintillion");
+            break;
+        case 100:
+            out = string("googol");
+            break;
     }
-    
-    /*
+
+    /* https://simple.wikipedia.org/wiki/Names_for_large_numbers 
     Place
     1 	Ten 	Ten 	Ten 	da 	Deca-
     2 	Hundred 	Hundred 	Hundred 	h 	Hecto-
@@ -214,6 +275,20 @@ string getUnitsString(int DigitsPlace, int Value)
     54 	Septendecillion 	Nonillion 	Nonillion
     57 	Octodecillion 	Nonilliard 	Thousand nonillion
     60 	Novemdecillion 	Decillion 	Decillion
+    63	Vigintillion	Decilliard	Thousand decillion
+    66	Unvigintillion	Undecillion	Undecillion
+    69	Duovigintillion	Undecilliard	Thousand undecillion
+    72	Trevigintillion	Duodecillion	Duodecillion
+    75	Quattuorvigintillion	Duodecilliard	Thousand duodecillion
+    78	Quinvigintillion	Tredecillion	Tredecillion
+    81	Sexvigintillion	Tredecilliard	Thousand tredecillion
+    84	Septenvigintillion	Quattuordecillion	Quattuordecillion
+    87	Octovigintillion	Quattuordecilliard	Thousand quattuordecillion
+    90	Novemvigintillion	Quindecillion	Quindecillion
+    93	Trigintillion	Quindecilliard	Thousand quindecillion
+    96	Untrigintillion	Sexdecillion	Sexdecillion
+    99	Duotrigintillion	Sexdecilliard	Thousand sexdecillion
+    100	Googol	Googol	Googol    
     */
 
     return out;
@@ -295,5 +370,3 @@ int main()
 
     return 0;
 }
-
-
