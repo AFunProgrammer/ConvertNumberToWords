@@ -4,7 +4,12 @@ Conversion of Numbers to written words (e.g. 1 to one, 2 to two, 12 to twelve) w
 To sample the running code, follow this link: https://www.onlinegdb.com/4V0W-Mwvz or https://onlinegdb.com/ArKNUrv41
 (or you can copy and paste the cpp file in to OnlineGDB.com and select C++ 20 on top right then click run)
 
-Currently this is limited to novemdecillion and an example output follows for a large value.
+Currently this is limited to googol (1e100) and an example output follows for a large value.
+e.g.  
+7.5e18
+is written as:
+seven quintillion five hundred quadrillion
+
 e.g. 
 564065406540654684168879896049044004964864165190
 is written as:
@@ -14,7 +19,4 @@ is written as:
   fourty nine quintillion fourty four quadrillion four trillion nine hundred sixty four billion
   eight hundred sixty four million one hundred sixty five thousand one hundred ninety"
 
-e.g.  
-7.5e18
-is written as:
-seven quintillion five hundred quadrillion
+
