@@ -1,7 +1,7 @@
 # ConvertNumberToWords
 Conversion of Numbers to written words (e.g. 1 to one, 2 to two, 12 to twelve) with digit group names (e.g. thousand, million)
 
-To sample the running code, follow this link: https://onlinegdb.com/L-S-J860o or https://onlinegdb.com/HWweIo-9K ... or https://onlinegdb.com/hSn72nz8z
+To sample the running code, follow this link: https://www.onlinegdb.com/4V0W-Mwvz or https://onlinegdb.com/ArKNUrv41
 (or you can copy and paste the cpp file in to OnlineGDB.com and select C++ 20 on top right then click run)
 
 Currently this is limited to novemdecillion and an example output follows for a large value.
@@ -14,3 +14,7 @@ is written as:
   fourty nine quintillion fourty four quadrillion four trillion nine hundred sixty four billion
   eight hundred sixty four million one hundred sixty five thousand one hundred ninety"
 
+e.g.  
+7.5e18
+is written as:
+seven quintillion five hundred quadrillion
