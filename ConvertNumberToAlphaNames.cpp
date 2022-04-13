@@ -14,12 +14,12 @@ using namespace std;
 
 bool isInScientificNotation(const string CheckForScientificNotation)
 {
-    if( string::npos == CheckForScientificNotation.find("E") || string::npos == CheckForScientificNotation.find("e") )
+    if( string::npos == CheckForScientificNotation.find("E") && string::npos == CheckForScientificNotation.find("e") )
     {
-        return true;
+        return false;
     }
     
-    return false;
+    return true;
 }
 
 //TODO: Bugcheck extensively
@@ -405,7 +405,271 @@ string ConvertNumberToWords(string Value)
         iPrevNumber = iNumber; 
     }
     
-    return ConvertedToWords;
+    return ConvertedToWords;/******************************************************************************
+2
+Welcome to GDB Online.
+3
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+4
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+5
+Code, Compile, Run and Debug online from anywhere in world.
+6
+*******************************************************************************/
+7
+#include <stdio.h>
+8
+#include <string>
+9
+#include <deque>
+10
+#include <iostream>
+11
+#include <stdlib.h>
+12
+​
+13
+using namespace std;
+14
+​
+15
+bool isInScientificNotation(const string CheckForScientificNotation)
+16
+{
+17
+    if( string::npos == CheckForScientificNotation.find("E") || string::npos == CheckForScientificNotation.find("e") )
+18
+    {
+19
+        return true;
+20
+    }
+21
+    
+22
+    return false;
+23
+}
+24
+​
+25
+//TODO: Bugcheck extensively
+26
+string convertFromScientificNotation(const string ScientificNotation)
+27
+{
+28
+    string converted = "";
+29
+    string eNotation = "";
+30
+    int nDecimalPos = -1;
+31
+    int nENotationPos = -1;
+32
+    int nPower = 0;
+33
+    int nAddPower = 0;
+34/******************************************************************************
+2
+Welcome to GDB Online.
+3
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+4
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+5
+Code, Compile, Run and Debug online from anywhere in world.
+6
+*******************************************************************************/
+7
+#include <stdio.h>
+8
+#include <string>
+9
+#include <deque>
+10
+#include <iostream>
+11
+#include <stdlib.h>
+12
+​
+13
+using namespace std;
+14
+​
+15
+bool isInScientificNotation(const string CheckForScientificNotation)
+16
+{
+17
+    if( string::npos == CheckForScientificNotation.find("E") || string::npos == CheckForScientificNotation.find("e") )
+18
+    {
+19
+        return true;
+20
+    }
+21
+    
+22
+    return false;
+23
+}
+24
+​
+25
+//TODO: Bugcheck extensively
+26
+string convertFromScientificNotation(const string ScientificNotation)
+27
+{
+28
+    string converted = "";
+29
+    string eNotation = "";
+30
+    int nDecimalPos = -1;
+31
+    int nENotationPos = -1;/******************************************************************************
+2
+Welcome to GDB Online.
+3
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+4
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+5
+Code, Compile, Run and Debug online from anywhere in world.
+6
+*******************************************************************************/
+7
+#include <stdio.h>
+8
+#include <string>
+9
+#include <deque>
+10
+#include <iostream>
+11
+#include <stdlib.h>
+12
+​
+13
+using namespace std;
+14
+​
+15
+bool isInScientificNotation(const string CheckForScientificNotation)
+16
+{
+17
+    if( string::npos == CheckForScientificNotation.find("E") || string::npos == CheckForScientificNotation.find("e") )
+18
+    {
+19
+        return true;
+20
+    }
+21
+    
+22
+    return false;
+23
+}
+24
+​
+25
+//TODO: Bugcheck extensively
+26
+string convertFromScientificNotation(const string ScientificNotation)
+27
+{
+28
+    string converted = "";
+29
+    string eNotation = "";
+30
+    int nDecimalPos = -1;
+31
+    int nENotationPos = -1;
+32
+    int nPower = 0;
+33
+    int nAddPower = 0;
+34
+    
+35
+    nDecimalPos = ScientificNotation.find(".");
+36
+​
+37
+    nENotationPos = ScientificNotation.find("e");
+38
+    if ( string::npos == nENotationPos)
+39
+    {
+40
+        nENotationPos = ScientificNotation.find("e");
+41
+        if ( string::npos == nENotationPos)
+42
+            return string("error");
+43
+    }
+44
+    
+45
+    //negative ScientificNotation
+32
+    int nPower = 0;
+33
+    int nAddPower = 0;
+34
+    
+35
+    nDecimalPos = ScientificNotation.find(".");
+36
+​
+37
+    nENotationPos = ScientificNotation.find("e");
+38
+    if ( string::npos == nENotationPos)
+39
+    {
+40
+        nENotationPos = ScientificNotation.find("e");
+41
+        if ( string::npos == nENotationPos)
+42
+            return string("error");
+43
+    }
+44
+    
+45
+    //negative ScientificNotation
+    
+35
+    nDecimalPos = ScientificNotation.find(".");
+36
+​
+37
+    nENotationPos = ScientificNotation.find("e");
+38
+    if ( string::npos == nENotationPos)
+39
+    {
+40
+        nENotationPos = ScientificNotation.find("e");
+41
+        if ( string::npos == nENotationPos)
+42
+            return string("error");
+43
+    }
+44
+    
+45
+    //negative ScientificNotation
 }
 
 int main()
