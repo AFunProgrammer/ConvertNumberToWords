@@ -12,24 +12,72 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 using namespace std;
 
-//TODO
 bool isInScientificNotation(const string CheckForScientificNotation)
 {
+    if( string::npos == CheckForScientificNotation.find("E") || string::npos == CheckForScientificNotation.find("e") )
+    {
+        return true;
+    }
+    
     return false;
 }
-//TODO
+
+//TODO: Bugcheck extensively
 string convertFromScientificNotation(const string ScientificNotation)
 {
     string converted = "";
+    string eNotation = "";
+    int nDecimalPos = -1;
+    int nENotationPos = -1;
+    int nPower = 0;
+    int nAddPower = 0;
+    
+    nDecimalPos = ScientificNotation.find(".");
+
+    nENotationPos = ScientificNotation.find("e");
+    if ( string::npos == nENotationPos)
+    {
+        nENotationPos = ScientificNotation.find("e");
+        if ( string::npos == nENotationPos)
+            return string("error");
+    }
+    
+    //negative ScientificNotation
+    if ( ScientificNotation[nENotationPos+1] == '-' )
+    {
+        return string("0");
+    }
+    
+    if ( ScientificNotation[nENotationPos+1] == '+' )
+        nAddPower = stoi(ScientificNotation.substr(nENotationPos+2));
+    else
+        nAddPower = stoi(ScientificNotation.substr(nENotationPos+1));
+    
+    converted = ScientificNotation.substr(0,nENotationPos);
+    
+    //Add in number of digits past places already in the string
+    if ( string::npos == nDecimalPos )
+        nPower = 0;
+    else
+        nPower = converted.substr(nDecimalPos+1).length();
+    
+    for( int iAddPower = nPower; iAddPower < nAddPower; iAddPower++ )
+    {
+        converted += "0";
+    }
+    
+    if ( string::npos != nDecimalPos)
+        converted.erase(nDecimalPos,1);
+    
     return converted;
 }
+
 //TODO
 string convertToScientificNotation(const string Value)
 {
     string converted = "";
     return converted;
 }
-
 
 string removeNonNumberCharacters(const string RemoveNonNumbers)
 {
@@ -40,6 +88,13 @@ string removeNonNumberCharacters(const string RemoveNonNumbers)
     
     while ( iChar < keepOnlyNumbers.length() )
     {
+        //special characters
+        if ( keepOnlyNumbers[iChar] == 'e' || keepOnlyNumbers[iChar] == 'E' || keepOnlyNumbers[iChar] == '+' || keepOnlyNumbers[iChar] == '.' )
+        {
+            iChar++;
+            continue;
+        }
+            
         iNumber = keepOnlyNumbers[iChar] - (char)'0';
         
         if ( iNumber >= 0 && iNumber <= 9 )
@@ -355,15 +410,25 @@ string ConvertNumberToWords(string Value)
 
 int main()
 {
+    string sCleaned = string("");
     string sInput = string("");
-    cout << "Input A Number To Convert To It's Word Value (avoid decimals values for now): ";
+    cout << "Input a number to convert to it's word value (use 117000 or 1.17e+5 or 1.17e5 for input): ";
     cin >> sInput;
+    cout << "I Received: " << sInput << endl;
+    sCleaned = removeNonNumberCharacters(sInput);
+    
+    if( sCleaned.length() != sInput.length() )
+    {
+        cout << "The Number after removing extraneous characters: " << sCleaned << endl;
+        sInput = sCleaned;
+    }
+    
+    if ( isInScientificNotation(sInput) )
+    {
+        sInput = convertFromScientificNotation(sInput);
+    }
 
-    cout << "The Number Received Was: " << sInput << endl;
-    
-    sInput = removeNonNumberCharacters(sInput);
-    
-    cout << "The Number Received Was (Without Seperators): " << sInput << endl;
+    cout << "In Decimal Format: " << sInput << endl;
     cout << "The Number Is Read As: " << endl;
     
     cout << ConvertNumberToWords(sInput);
