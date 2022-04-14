@@ -2,7 +2,7 @@
 Conversion of Numbers to written words (e.g. 1 to one, 2 to two, 12 to twelve) with digit group names (e.g. thousand, million)
 
 To sample the running code (Read All Steps Before Continuing... Eventually This Will Become A Website for Ease):
-1. Click on Either Link: [https://onlinegdb.com/S76KMZMlR](https://onlinegdb.com/S76KMZMlR) or [https://onlinegdb.com/t2NNXluk_](https://onlinegdb.com/t2NNXluk_)
+1. Click on Either Link: [https://onlinegdb.com/Fp8UjJqFDC](https://onlinegdb.com/Fp8UjJqFDC) or [https://onlinegdb.com/GDaDL21OV](https://onlinegdb.com/GDaDL21OV)
 2. Click on "Run" button at top center-ish
 3. Enter your desired value at bottom (where you see: "Input a number to convert to it's word value (use 117000 or 1.17e+5 or 1.17e5 for input):")
 
